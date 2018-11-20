@@ -1,8 +1,7 @@
-import { JsonController, Get, Param, Put, Body, NotFoundError, HttpCode } from 'routing-controllers'
+import { JsonController, Get, Param, Put, Body, NotFoundError, HttpCode, Post } from 'routing-controllers'
 // import pagesById, { Page } from './data'
-import Page from './entity'
+import { Page } from './entity'
 
-// Put, Body, Post, HttpCode 
 // type PageList = { pages: Page[] }
 
 @JsonController()
@@ -49,7 +48,13 @@ export default class PageController {
   //   return pagesById[id]
   // }
 
-  // @Post('/pages')
+  @Post('/pages')
+  @HttpCode(201)
+  createPage(
+    @Body() page: Page
+  ) {
+    return page.save()
+  }
 
   // @Post('/pages')
   // @HttpCode(201)
