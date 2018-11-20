@@ -1,4 +1,4 @@
-import { JsonController, Get, Param, Put, Body, NotFoundError } from 'routing-controllers'
+import { JsonController, Get, Param, Put, Body, NotFoundError, HttpCode } from 'routing-controllers'
 // import pagesById, { Page } from './data'
 import Page from './entity'
 
@@ -28,6 +28,7 @@ export default class PageController {
   // }
 
   @Put('/pages/:id')
+  @HttpCode(201)
   async updatePage(
     @Param('id') id: number,
     @Body() update: Partial<Page>
@@ -47,6 +48,8 @@ export default class PageController {
   //   console.log(`Incoming PUT body param:`, body)
   //   return pagesById[id]
   // }
+
+  // @Post('/pages')
 
   // @Post('/pages')
   // @HttpCode(201)
