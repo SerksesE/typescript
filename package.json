@@ -21,6 +21,6 @@
   },
   "scripts": {
     "start": "nodemon .",
-    "compile": "tsc"
+    "compile": "tsc -w"
   }
 }
